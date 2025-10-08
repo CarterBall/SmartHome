@@ -38,3 +38,19 @@ class Lights:
 
     def Off(self):
         self.sendReguest("turn_off")
+
+     #toggle up
+    def BrightnessUp(self):
+       self.brightnessPercent = min(100, self.brightnessPercent + 10)
+       self.sendReguest("turn_on")
+
+    #toggle down
+    def BrightnessDown(self):
+        self.brightnessPercent = max(0, self.brightnessPercent - 10)
+        self.sendReguest("turn_on")    
+    
+    #slider
+    #def setBrightness(self, value):
+    #   self.brightnessPercent = max(0, min(100, value))
+    #   self.sendReguest("turn_on")
+
