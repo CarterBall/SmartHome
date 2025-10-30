@@ -11,7 +11,7 @@ def main():
     light = Lights(entityID, hassUrl, accessToken)
 
     while (run):
-        inputVal = input("Enter on or off: ")
+        inputVal = input("Enter on, off or exit: ")
 
         if (inputVal == "exit"):
             run = False
@@ -19,10 +19,6 @@ def main():
             light.On()
         elif (inputVal == "off"):
             light.Off()
-        elif (inputVal == "down"):
-            light.BrightnessDown()
-        elif (inputVal == "up"):
-            light.BrightnessUp()
 
 
 # call function main
