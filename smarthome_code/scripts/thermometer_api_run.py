@@ -1,4 +1,4 @@
-from code.scripts.thermometer import thermometer
+from smarthome_code.scripts.thermometer import thermometer
 
 
 def main():
