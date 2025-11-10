@@ -13,7 +13,7 @@ class soilMoistureSensor:
     # Sends a request given a entityID.
     def sendRequest(self):
         # send request to this location
-        URL = self.homeAssistantUrl + "/api/states/" + self.humidityEntityID
+        URL = self.homeAssistantUrl + "/api/states/" + self.SMS_EntityID
         # authorization step
         headers = {
             "Authorization": "Bearer " + self.accessToken,
