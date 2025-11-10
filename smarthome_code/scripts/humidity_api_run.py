@@ -1,0 +1,24 @@
+from smarthome_code.scripts.humidity import humidity
+
+
+def main():
+
+    entityID = "sensor.unk_manufacturer_unk_model_temperature"
+    hassUrl = "http://127.0.0.1:8123"
+    accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlOTQyOWUwNjExZDE0MTRhOTQzN2I0ZTM4ODJhYWE0ZCIsImlhdCI6MTc1OTkwMjQzNSwiZXhwIjoyMDc1MjYyNDM1fQ.UcwYd74WsvgW9gB8xJZexYXX6MrojJ96pGtcJuZgeEk"
+
+    run = True
+    h = humidity(entityID, hassUrl, accessToken)
+
+    while (run):
+        inputVal = input("H for Humidity or exit: ")
+
+        if (inputVal == "exit"):
+            run = False
+        elif (inputVal == "H"):
+            h.humidity()
+
+
+# call function main
+if __name__ == "__main__":
+    main()
