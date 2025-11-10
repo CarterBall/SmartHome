@@ -1,24 +1,24 @@
-from code.scripts.thermometer import thermometer
+from Lights import Lights
 
 
 def main():
 
-    entityID = "sensor.unk_manufacturer_unk_model_temperature"
+    entityID = "light.third_reality_inc_3rcb01057z_light"
     hassUrl = "http://127.0.0.1:8123"
     accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlOTQyOWUwNjExZDE0MTRhOTQzN2I0ZTM4ODJhYWE0ZCIsImlhdCI6MTc1OTkwMjQzNSwiZXhwIjoyMDc1MjYyNDM1fQ.UcwYd74WsvgW9gB8xJZexYXX6MrojJ96pGtcJuZgeEk"
 
     run = True
-    temp = thermometer(entityID, hassUrl, accessToken)
+    light = Lights(entityID, hassUrl, accessToken)
 
     while (run):
-        inputVal = input("C for Celsius or F for Fahrenheit or exit: ")
+        inputVal = input("Enter on, off or exit: ")
 
         if (inputVal == "exit"):
             run = False
-        elif (inputVal == "C"):
-            temp.celsius()
-        elif (inputVal == "F"):
-            temp.fahrenheit()
+        elif (inputVal == "on"):
+            light.On()
+        elif (inputVal == "off"):
+            light.Off()
 
 
 # call function main

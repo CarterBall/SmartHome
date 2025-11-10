@@ -4,7 +4,7 @@ import requests
 class thermometer:
 
     # thermometer constructor
-    def __init__(self, tempEntityID, humidityEntityID, homeAssistantUrl, accessToken):
+    def __init__(self, tempEntityID, homeAssistantUrl, accessToken):
         self.tempEntityID = tempEntityID  # which thermometer to connect to
         self.homeAssistantUrl = homeAssistantUrl  # where the home assitant live
         self.accessToken = accessToken  # proving Identity
@@ -26,16 +26,17 @@ class thermometer:
             print("Failed to get response from lights")
             return None
 
-    # Returns temp in celcius which is default.
+    # Returns temp in fahrenheit and converts it celcius.
     def celsius(self):
         temp = self.sendRequest()
         if temp is not None:
-            print(f"Temperature: {temp}°C")
+            c = (temp - 32) * 5 / 9
+            print(f"Temperature: {c:.1f}°C")
         return temp
 
-    # Returns fahrenheit after converting from celcius
+    # Returns fahrenheit by default
     def fahrenheit(self):
         temp = self.sendRequest()
         if temp is not None:
-            print(f"Temperature: {temp * 9/5 + 32}°F")
+            print(f"Temperature: {temp}°F")
         return temp
